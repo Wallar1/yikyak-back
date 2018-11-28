@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
   has_many :replies, class_name: 'Reply'
   has_many :votes
-  belongs_to :user
+  belongs_to :user, optional: true
 end
