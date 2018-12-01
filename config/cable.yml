@@ -9,4 +9,3 @@ production:
   url: redis://redistogo:d37923f896ddbcdc1d0bbc998b080797@barb.redistogo.com:9777/
   host: barb.redistogo.com
   port: 9777
-  password: d37923f896ddbcdc1d0bbc998b080797

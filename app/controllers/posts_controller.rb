@@ -1,20 +1,18 @@
 class PostsController < ApplicationController
-
-  def index
-    posts = Post.all
-    render json: posts
-  end
-
   def create
     post = Post.new(post_params)
     if(post.save)
-      serialized_data = ActiveModelSerializers::Adapter::Json.new(
-        PostSerializer.new(post)
-      ).serializable_hash
-      ActionCable.server.broadcast 'posts_channel', serialized_data
-      head :ok
+      BroadcastPostJob.perform_later(post.id)
     end
   end
+
+  def update
+    post = Post.find(post_params[:id])
+    if(post.update(post_params))
+      BroadcastPostJob.perform_later(post.id)
+    end
+  end
+
 
   private
 
