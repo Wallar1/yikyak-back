@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2018_11_22_055352) do
   create_table "posts", force: :cascade do |t|
     t.bigint "user_id"
     t.text "content"
-    t.float "lat"
-    t.float "lng"
+    t.float "lat", default: 37.384143664
+    t.float "lng", default: -122.10104227
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2018_11_22_055352) do
 
   create_table "replies", force: :cascade do |t|
     t.text "content"
+    t.string "icon"
     t.bigint "post_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
