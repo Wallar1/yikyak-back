@@ -1,12 +1,12 @@
 development:
-  adapter: async
+  adapter: any_cable
 
 test:
   adapter: async
 
 production:
-  adapter: :any_cable
-  redis_url: redis://redistogo:d37923f896ddbcdc1d0bbc998b080797@barb.redistogo.com:9777/
+  adapter: any_cable
+  # redis_url: redis://redistogo:d37923f896ddbcdc1d0bbc998b080797@barb.redistogo.com:9777/
   # host: barb.redistogo.com
   # port: 9777
 
